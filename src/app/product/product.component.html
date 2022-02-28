@@ -1,4 +1,38 @@
-<h1>{{Storename}}</h1>
+<!-- <h1>{{Storename}}</h1>
 <img [src]="StoreLogo">
-<h3>{{"We offer an explicit discount of : "+ Discount}}</h3> 
+<h3>{{"We offer an explicit discount of : "+ Discount}}</h3>  -->
 
+<h3 *ngIf="!(Discount==no) then thenBlock ; else elseBlock; " ></h3>
+
+
+<ng-template #thenBlock>
+
+    <h2>
+        We offer an explicit discount of:{{Discount|percent :'2.0-3'}}
+
+   </h2>
+</ng-template>
+<ng-template #elseBlock>
+
+    <h2>
+        We offer an explicit discount of:
+   </h2>
+</ng-template>
+
+<br>
+<div  style="margin-top: 20px;">
+    <select >
+        <option *ngFor="let item of CategoryLst" [value]="item.Name">
+          {{item.Name}}
+        </option>    
+    </select>
+</div>
+<br>
+
+<br>
+<input type="text" [(ngModel)]="ClientName" >
+<span>Client-Name :  {{ClientName}}</span>
+
+<br><br>
+{{Storename | uppercase}}
+<br><br>

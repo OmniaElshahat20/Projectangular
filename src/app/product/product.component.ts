@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DiscountOffers } from '../Shared Classes and types';
-import { IProduct } from '../Shared Classes and types';
-import { ICatogary } from '../Shared Classes and types';
+import { ICatogary } from '../shared classes and types/interface ICatogary';
+import { IProduct } from '../shared classes and types/interface IProduct';
+import { DiscountOffers } from '../shared classes and types/Enum DisscountOffers';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',

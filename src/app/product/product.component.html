@@ -2,13 +2,12 @@
 <img [src]="StoreLogo">
 <h3>{{"We offer an explicit discount of : "+ Discount}}</h3>  -->
 
-<h3 *ngIf="!(Discount==no) then thenBlock ; else elseBlock; " ></h3>
-
-
+<!-- 1 -->
+<h3 *ngIf="!(Discount==nod) then thenBlock ; else elseBlock; " ></h3>
 <ng-template #thenBlock>
 
     <h2>
-        We offer an explicit discount of:{{Discount|percent :'2.0-3'}}
+        We offer an explicit discount of:{{Discount|percent }}
 
    </h2>
 </ng-template>
@@ -20,19 +19,46 @@
 </ng-template>
 
 <br>
-<div  style="margin-top: 20px;">
-    <select >
-        <option *ngFor="let item of CategoryLst" [value]="item.Name">
-          {{item.Name}}
-        </option>    
-    </select>
-</div>
 <br>
-
-<br>
-<input type="text" [(ngModel)]="ClientName" >
-<span>Client-Name :  {{ClientName}}</span>
-
+<!-- 2 -->
+<div *ngFor="let item in CategoryLst"></div>
+<select name="" id="">
+    <option value="">{{CategoryLst[0].Name}}</option>
+    <option value="">{{CategoryLst[1].Name}}</option>
+    <option value="">{{CategoryLst[2].Name}}</option>
+</select>
 <br><br>
+<!-- 3 -->
+<table  style="border:1px black ; background-color: lightgrey; width: 400px; height: 500px; "  *ngIf="this.Ispushased;else displayTable">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Quantity</td>
+        <td>Price</td>
+        <td>Image</td>
+    </tr>
+<tr *ngFor="let item of ProductList">
+    <td>{{item.ID}}</td>
+    <td>{{item.Name}}</td>
+    <td>{{item.Quantity}}</td>
+    <td>{{item.Price}}</td>
+    <td><img src="{{item.Img}}" width="60px" height="60px" alt=""></td>
+</tr>
+</table>
+<br>
+<!-- 4 -->
+<input type="text" [(ngModel)]="Clientname" >
+<span>Client-Name :  {{Clientname}}</span>
+<br><br>
+<!-- 5 -->
+<button  (click)="showanottable()"  style="width: 300;">Buy</button>
+<ng-template #displayTable>
+    <h3>
+        Thanks Mrs : {{Clientname}} for purchasing from : {{ Storename}}</h3>
+</ng-template>
+<br><br>
+<!-- 2-a -->
 {{Storename | uppercase}}
 <br><br>
+<!-- 2-b -->
+Percent : {{Discount|percent }}

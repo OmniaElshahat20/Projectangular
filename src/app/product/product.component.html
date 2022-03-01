@@ -1,6 +1,6 @@
-<!-- <h1>{{Storename}}</h1>
-<img [src]="StoreLogo">
-<h3>{{"We offer an explicit discount of : "+ Discount}}</h3>  -->
+ <h1>{{Storename | uppercase}}</h1>
+<!-- <img [src]="StoreLogo">
+<h3>{{"We offer an explicit discount of : "+ Discount}}</h3>   -->
 
 <!-- 1 -->
 <h3 *ngIf="!(Discount==nod) then thenBlock ; else elseBlock; " ></h3>
@@ -57,8 +57,5 @@
         Thanks Mrs : {{Clientname}} for purchasing from : {{ Storename}}</h3>
 </ng-template>
 <br><br>
-<!-- 2-a -->
-<h2>{{Storename | uppercase}}</h2>
-<br>
-<!-- 2-b -->
-Percent : {{Discount|percent }}
+
+

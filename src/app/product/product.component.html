@@ -51,14 +51,14 @@
 <span>Client-Name :  {{Clientname}}</span>
 <br><br>
 <!-- 5 -->
-<button  (click)="showanottable()"  style="width: 300;">Buy</button>
+<button  (click)="showanottable()" >Buy</button>
 <ng-template #displayTable>
     <h3>
         Thanks Mrs : {{Clientname}} for purchasing from : {{ Storename}}</h3>
 </ng-template>
 <br><br>
 <!-- 2-a -->
-<h2 style="text-align: center;">{{Storename | uppercase}}</h2>
-<br><br>
+<h2>{{Storename | uppercase}}</h2>
+<br>
 <!-- 2-b -->
 Percent : {{Discount|percent }}

@@ -57,5 +57,10 @@
         Thanks Mrs : {{Clientname}} for purchasing from : {{ Storename}}</h3>
 </ng-template>
 <br><br>
-
-
+<!-- all prod -->
+<div *ngFor="let product of ProductList">
+ product Name : {{product.Name}} , product ID :  {{product.ID}} , product Quantity :  {{product.Quantity}} , product : Img  <img src="{{product.Img}}" width="60px" height="60px" alt="">
+</div>
+<br>
+<!-- prod id -->
+ <h2>{{"ProductDetails:  ID :" + ProductID.ID + "   , Name  : " + ProductID.Name + ",  Price :"+ProductID.Price }} </h2>

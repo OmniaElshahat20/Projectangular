@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ICatogary } from '../shared classes and types/interface ICatogary';
 import { IProduct } from '../shared classes and types/interface IProduct';
 import { DiscountOffers } from '../shared classes and types/Enum DisscountOffers';
+import { ProductServiceService } from '../services/product-service.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -9,7 +10,8 @@ import { DiscountOffers } from '../shared classes and types/Enum DisscountOffers
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { 
+constructor(private productservice:ProductServiceService) 
+{ 
 this.Discount= DiscountOffers.pres_10;
 this.nod=DiscountOffers.Nodis;
 
@@ -35,7 +37,7 @@ StoreLogo:string;
 Clientname:string;
 nod:DiscountOffers;
 Ispushased:boolean;
- ProductList:IProduct[];
+ProductList:IProduct[];
  //CatogaryList:ICatogary;
  CategoryLst:Array<ICatogary>=[
   {ID:1,Name:"clothes"},
@@ -45,7 +47,15 @@ Ispushased:boolean;
  showanottable(){
   this.Ispushased = !this.Ispushased
  }
+ ProductID:any;
   ngOnInit(): void {
+    this.ProductList=this.productservice.GetAllProducts();
+    this.ProductID=this.productservice.GetProductById(2);
+  }
+
+  renderValues(){
+    this.ProductList=this.productservice.GetAllProducts();
+        return this.ProductList;
   }
 
 }

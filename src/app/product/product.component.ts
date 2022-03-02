@@ -54,8 +54,7 @@ ProductList:IProduct[];
   }
 
   renderValues(){
-    this.ProductList=this.productservice.GetAllProducts();
-        return this.ProductList;
+    return this.ProductList=this.productservice.GetAllProducts();
   }
 
 }

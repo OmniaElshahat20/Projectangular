@@ -7,11 +7,21 @@ import { ProductComponent } from './product/product.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-
+  ProductList:any;
+  isClicked:boolean=false;
+  
   @ViewChild(ProductComponent) child?: ProductComponent;
-  ngAfterViewInit(){
-    this.child?.renderValues();
-  }
+       display(){
+       this.child?.renderValues();
+       this.ProductList=this.child?.ProductList??[];
+    
+    if(!this.isClicked)
+    this.isClicked=true;
+    else
+    this.isClicked=false;
+    
+      }
+
+  
   title = 'firstproj';
 }

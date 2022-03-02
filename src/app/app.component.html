@@ -2,4 +2,31 @@
 <!-- <app-footer></app-footer> -->
 <app-product></app-product>
 
-
+<button (click)="display()">displayData</button>
+<div *ngIf="!isClicked;  then Display ">
+</div>
+<ng-template #Display>
+    <h2>
+        <table style="border: 1px black solid ; background-color: antiquewhite; width: 300px; height: 200px;">
+            <thead>
+                <tr >
+                    <th >ID</th>
+                    <th >Name</th>
+                    <th >Quantity</th>
+                    <th >Price</th>
+                    <th >Img</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of ProductList ">
+                    <td>{{item.ID}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Quantity}}</td>
+                    <td>{{item.Price}}</td>
+                    <td><img src="{{item.Img}}" width="60px" height="60px" alt=""></td>
+                </tr>
+        
+            </tbody>
+        </table>
+    </h2>
+</ng-template>

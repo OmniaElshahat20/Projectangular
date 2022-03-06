@@ -3,6 +3,7 @@ import { ICatogary } from '../shared classes and types/interface ICatogary';
 import { IProduct } from '../shared classes and types/interface IProduct';
 import { DiscountOffers } from '../shared classes and types/Enum DisscountOffers';
 import { ProductServiceService } from '../services/product-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -10,7 +11,7 @@ import { ProductServiceService } from '../services/product-service.service';
 })
 export class ProductComponent implements OnInit {
 
-constructor(private productservice:ProductServiceService) 
+constructor(private productservice:ProductServiceService , private router:Router ) 
 { 
 this.Discount= DiscountOffers.pres_10;
 this.nod=DiscountOffers.Nodis;
@@ -56,5 +57,10 @@ ProductList:IProduct[];
   renderValues(){
     return this.ProductList=this.productservice.GetAllProducts();
   }
-
+  navigate() {
+    this.router.navigate(["/product"]);
+  }
+  navigate2() {
+    this.router.navigate(["/product"]);
+  }
 }
